@@ -29,8 +29,6 @@ const functionArr = {
 };
 
 const processInput = async (text : string) => {
-
-  console.log("text", text);
   
   const response = await openai.chat.completions.create({
     model: "gpt-4o",
@@ -134,11 +132,8 @@ const processInput = async (text : string) => {
 
   });
 
-  console.log("response" ,response.choices[0].message);
-  
 
   const res :any = response?.choices[0].message.tool_calls ? response.choices[0].message.tool_calls[0].function.arguments : null;
-  console.log(res);
 
   try {
     // Parse and return the JSON object
