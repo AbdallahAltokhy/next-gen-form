@@ -21,7 +21,7 @@ This project is a demonstration of a next-generation form that leverages AI to d
 1. **Clone the Repository**
 
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/AbdallahAltokhy/next-gen-form.git
    cd next-gen-form
 
    ```
