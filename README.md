@@ -60,3 +60,11 @@ npm start
 ```
 
 This will start the frontend server at `http://localhost:3000` and the backend server at `http://localhost:5000`. You can then access the application by navigating to `http://localhost:3000` in your web browser.
+
+<!-- App url -->
+
+[app-url]: https://next-gen-form.vercel.app/
+
+You can also access the deployed version of the application [here][app-url].
+
+PS: You need to run the backend server locally (Backend isn't deployed as for now) to be able to use the app and use your own OpenAI API key.

@@ -7,17 +7,11 @@ dotenv.config();
 // Routers
 import parseRouter from './routers/parseRouter';
 
-
 const app = express();
-
-const corsOptions = {
-  origin: '*',
-  optionsSuccessStatus: 200,
-}
 
 
 // middleware
-app.use(cors(corsOptions) )
+app.use(cors() )
 app.options('*', cors());
 app.use(morgan("dev"));
 app.use(helmet());

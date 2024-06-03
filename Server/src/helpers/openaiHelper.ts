@@ -33,8 +33,6 @@ const processInput = async (text : string) => {
   const response = await openai.chat.completions.create({
     model: "gpt-4o",
     messages: [
-
-      // You are an AI assistant. Your task is to parse user text input and extract relevant information to generate a structured JSON schema.
       {
         role: "system",
         content:`
