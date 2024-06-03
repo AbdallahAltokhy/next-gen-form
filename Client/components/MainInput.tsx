@@ -125,7 +125,7 @@ export default function MainInput({
         if (newDataRef.current.length > 0) {
           animateFrame(pos - 8);
         } else {
-          setValue("");
+          // setValue("");
           setAnimating(false);
         }
       });
@@ -227,7 +227,10 @@ export default function MainInput({
         </motion.svg>
       </button>
 
-      <div className="absolute inset-0 flex items-center rounded-full pointer-events-none">
+      {
+        !value && 
+
+        <div className="absolute inset-0 flex items-center rounded-full pointer-events-none">
         <AnimatePresence mode="wait">
           {!value && (
             <motion.p
@@ -254,7 +257,7 @@ export default function MainInput({
             </motion.p>
           )}
         </AnimatePresence>
-      </div>
+      </div>}
     </form>
   );
 }

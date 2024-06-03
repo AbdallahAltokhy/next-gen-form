@@ -3,8 +3,8 @@ import processInput from '../helpers/openaiHelper';
 
 const parseUserInput = async (req: Request, res: Response) => { // TODO: Add types for req and res objects
   try {
-    const { input } : any = req.body;
-    const parsedData = await processInput(input);
+    const { text } : any = req.body;    
+    const parsedData = await processInput(text);
     res.status(200).json(parsedData);
   } catch (error) {
     console.log(error);
