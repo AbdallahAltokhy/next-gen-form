@@ -13,7 +13,6 @@ export default function HomeComponent() {
       "Need to contact customer service?",
       "Want to sign up for a new service?",
       "Just type and we'll do the rest."
-
     ];
 
     const [inputValue, setInputValue] = useState("");
@@ -40,10 +39,10 @@ export default function HomeComponent() {
   
       return (
         <div className=" flex flex-col justify-center  items-center px-4 mt-56" >
-          <h2 className="  text-xl text-center sm:text-5xl dark:text-white text-black">
+          <h2 className="  text-xl text-center sm:text-5xl dark:text-white text-white">
             Who needs forms? 
           </h2>
-          <h2 className="mb-1 sm:mb-20 text-xl text-center sm:text-5xl dark:text-white text-black">
+          <h2 className="mb-1 sm:mb-20 text-xl text-center sm:text-5xl dark:text-white text-white">
             Just type and we&apos;ll do the rest.
           </h2>
 
@@ -53,9 +52,9 @@ export default function HomeComponent() {
             onSubmit={onSubmit}
           />
 
-          {loading && <p>Loading...</p>}
+          {loading && <p className="mt-4">Loading...</p>}
 
-          {error && <p>Error: {error}</p>}
+          {error && <p className="mt-4">Error: {error}</p>}
 
           {data && <Form data={data} />}
 

@@ -5,8 +5,12 @@ import axios from "axios";
 const BASE_URL =  'http://localhost:5000/api' ;
 const parseInput = async (text :string)=> {
 
-  const parsedData = (await axios.post(`${BASE_URL}/parse` , {text})).data;
-  return parsedData.data;  
+  try {
+    const parsedData = (await axios.post(`${BASE_URL}/parse` , {text})).data;
+    return parsedData.data;  
+  } catch (error) {
+    return null;
+  }
 
 }
 

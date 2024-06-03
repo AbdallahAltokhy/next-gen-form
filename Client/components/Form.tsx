@@ -18,7 +18,7 @@ export function Form(data : FormProps) {
   };
 
   return (
-    <div className="max-w-xl w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
+    <div className="max-w-xl w-full mx-auto mt-4 rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
 
     {
       !data?.data?.length  ? (
