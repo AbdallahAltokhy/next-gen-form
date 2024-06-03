@@ -1,0 +1,28 @@
+import  express from 'express';
+import  dotenv from 'dotenv';
+import cors from 'cors';
+import morgan from 'morgan';
+import helmet from 'helmet';
+dotenv.config();
+// Routers
+import parseRouter from './routers/parseRouter';
+
+
+const app = express();
+
+// middleware
+app.use(cors())
+app.options('*', cors());
+app.use(morgan("dev"));
+app.use(helmet());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+
+// routes
+app.use('/api/parse', parseRouter);
+
+// start server
+const port = process.env.SERVER_PORT || 5000;
+app.listen(port, () => console.log(`App listening on port ${port} 🚀🕺🏻🎯🚀`));
+
