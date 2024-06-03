@@ -1,7 +1,5 @@
 
 import OpenAI from 'openai' ;
-console.log("process.env.OPENAI_API_KEY", process.env.OPENAI_API_KEY);
-
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY  as string,
@@ -10,7 +8,7 @@ const openai = new OpenAI({
 
 const functionArr = {
   name: `extractInformation`,
-  description: `Extracts structured information from unstructured text input.`,
+  description: `Extracts structured information from unstructured text input. and output a JSON schema with form Label/value pairs.`,
   parameters: {
     type: `object`,
     properties: {
@@ -19,10 +17,10 @@ const functionArr = {
         items: {
           type: 'object',
           properties: {
-            label: { type: 'string', description: 'The label for the information.' },
-            input: { type: 'string', description: 'The extracted information.' },
+            label: { type: 'string', description: 'The form label' },
+            value: { type: 'string', description: 'The form field value' },
           },
-          required: ['label', 'input'],
+          required: ['label', 'value'],
         },
       },
     },
@@ -38,16 +36,18 @@ const processInput = async (text : string) => {
 
       {
         role: "system",
-        content: "You are an AI assistant. Your task is to parse user text input and extract relevant information to generate a structured JSON schema."
+        content: 
+        `
+        You are an AI assistant. Your task is to parse user text input and extract relevant information to generate a structured JSON schema.
+        `
       },
       {
         role: "user",
         content: [
           {
             type: "text",
-            text
+            text : `Please extract the information from the following text: "${text}`
           },
-          
         ]
       }
     ],
@@ -58,7 +58,7 @@ const processInput = async (text : string) => {
       }
     ],
 
-    tool_choice: { "type": "function", "function": { "name": "extractInformation" } },
+    tool_choice: { "type": "function", "function": { "name": "extractInformation" }},
 
   });
 

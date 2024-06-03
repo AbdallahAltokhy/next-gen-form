@@ -1,10 +1,10 @@
-import Form from '../components/Form';
+import HomeComponent from '../components/Home';
 import 'tailwindcss/tailwind.css';
 
 const Home = () => {
   return (
     <div>
-      <Form />
+      <HomeComponent />
     </div>
   );
 };
