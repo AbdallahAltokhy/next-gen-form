@@ -9,9 +9,11 @@ import { Form } from "./Form";
 export default function HomeComponent() {
 
     const placeholders = [
-      "Enter some text...",
-      "Enter some more text...",
-      "Enter even more text...",
+      "Wanna cancel your gym membership?",
+      "Need to contact customer service?",
+      "Want to sign up for a new service?",
+      "Just type and we'll do the rest."
+
     ];
 
     const [inputValue, setInputValue] = useState("");

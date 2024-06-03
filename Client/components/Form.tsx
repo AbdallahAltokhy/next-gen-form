@@ -11,17 +11,37 @@ type FormProps = {
 
 
 export function Form(data : FormProps) {
-  console.log("data fromm form", data.data);
   
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Form submitted");
   };
 
-
   return (
     <div className="max-w-xl w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
-  
+
+    {
+      !data?.data?.length  ? (
+        <div className="flex flex-col items-center justify-center">
+          <h2 className="text-2xl font-bold  mt-8 dark:text-white text-black">
+            No data found
+          </h2>
+          <p className="text-neutral-500 dark:text-neutral-400 mt-2">
+            Try entering a different input.
+          </p>
+        </div>
+      ) : (
+
+        <>
+        
+        <h2 className="text-2xl font-bold  mt-8 dark:text-white text-black">
+        Form Fields
+      </h2>
+
+      <p className="text-neutral-500 dark:text-neutral-400 mt-2">
+        Seems right? Just hit submit or update fields as needed.
+      </p>
+
       <form className="my-8" onSubmit={handleSubmit}>
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
           
@@ -30,7 +50,7 @@ export function Form(data : FormProps) {
               return (
                 <LabelInputContainer key={index} className="mb-4">
                   <Label htmlFor={item.label}>{item.label}</Label>
-                  <Input id={item.label} placeholder={item.value} type="text" />
+                  <Input id={item.label} placeholder={item.value} type="text" defaultValue={item.value}/>
                 </LabelInputContainer>
               );
             })
@@ -42,7 +62,7 @@ export function Form(data : FormProps) {
               return (
                 <LabelInputContainer key={index} className="mb-4">
                   <Label htmlFor={item.label}>{item.label}</Label>
-                  <Input id={item.label} placeholder={item.value} type="text" />
+                  <Input id={item.label} placeholder={item.value} type="text" defaultValue={item.value}/>
                 </LabelInputContainer>
               );
             })
@@ -51,7 +71,7 @@ export function Form(data : FormProps) {
         <button
           className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
           type="submit"
-        >
+          >
           Submit &rarr;
           <BottomGradient />
         </button>
@@ -59,6 +79,11 @@ export function Form(data : FormProps) {
         <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
 
       </form>
+</>
+)
+  
+        
+      }
     </div>
   );
 }
