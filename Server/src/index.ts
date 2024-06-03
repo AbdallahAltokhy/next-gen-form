@@ -10,8 +10,14 @@ import parseRouter from './routers/parseRouter';
 
 const app = express();
 
+const corsOptions = {
+  origin: '*',
+  optionsSuccessStatus: 200,
+}
+
+
 // middleware
-app.use(cors())
+app.use(cors(corsOptions) )
 app.options('*', cors());
 app.use(morgan("dev"));
 app.use(helmet());
@@ -21,6 +27,11 @@ app.use(express.urlencoded({ extended: true }));
 
 // routes
 app.use('/api/parse', parseRouter);
+
+// health check
+app.get('/', (req, res) => {
+  res.send('Server is up and running');
+});
 
 // start server
 const port = process.env.SERVER_PORT || 5000;
