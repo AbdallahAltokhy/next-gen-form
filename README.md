@@ -39,7 +39,7 @@ This project is a demonstration of a next-generation form that leverages AI to d
    ```
 
 3. **Set Up Environment Variables**
-   copy the .env.example file and rename it to .env
+   copy the .env.example file and rename it to .env in the Server directories.
    ```bash
    cp .env.dist .env
    ```
@@ -51,7 +51,7 @@ To run the full application, you will need to start both the frontend and backen
 
 ```bash
 cd Client
-npm start
+npm run dev
 ```
 
 ```bash
