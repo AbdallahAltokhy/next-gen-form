@@ -38,7 +38,7 @@ export default function HomeComponent() {
       };
   
       return (
-        <div className=" flex flex-col justify-center  items-center px-4 mt-56" >
+        <div className=" flex flex-col justify-center  items-center px-4 mt-56 bg-black" >
           <h2 className="  text-xl text-center sm:text-5xl dark:text-white text-white">
             Who needs forms? 
           </h2>
